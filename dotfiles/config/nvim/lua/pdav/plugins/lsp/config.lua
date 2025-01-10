@@ -17,12 +17,13 @@ local border = {
 
 local servers = {
     "eslint",
-    "tsserver",
+    "ts_ls",
     "lua_ls",
     "denols",
     "astro",
     "tailwindcss",
     "jsonls",
+    "pylsp",
     "vimls",
 }
 
