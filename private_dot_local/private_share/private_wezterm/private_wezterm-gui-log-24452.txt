@@ -1,7 +1,0 @@
-10:16:17.013  WARN   wezterm_font > No fonts contain glyphs for these codepoints: \u{e6b4}.
-Placeholder glyphs are being displayed instead.
-You may wish to install additional fonts, or adjust your
-configuration so that it can find them.
-https://wezfurlong.org/wezterm/config/fonts.html has more information about configuring fonts.
-Set warn_about_missing_glyphs=false to suppress this message.
-09:10:20.443  INFO   wezterm_gui::termwindow > QuitApplication over here (window)
