@@ -72,6 +72,8 @@ export XMODIFIERS=""
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+[ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
+
 . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
