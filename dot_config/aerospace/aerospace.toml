@@ -118,7 +118,6 @@ outer.right =      [ { monitor."Built-in Retina Display" = 5 }, 25  ]
     alt-equal = 'resize smart +100'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands
-
     alt-1 = 'workspace 1'
     alt-2 = 'workspace 2'
     alt-3 = 'workspace 3'
@@ -132,7 +131,7 @@ outer.right =      [ { monitor."Built-in Retina Display" = 5 }, 25  ]
     alt-b = 'workspace B' # Browsers
     alt-c = 'workspace C' # Chat apps
     alt-d = 'workspace D' # Development
-    alt-m = 'workspace M' # Mail
+    alt-m = 'workspace M' # Media
     alt-n = 'workspace N' # Notes
     alt-p = 'workspace P' # Productivity
     alt-t = 'workspace T' # Terminal
@@ -230,6 +229,26 @@ run = 'move-node-to-workspace B'
 if.app-id = 'app.zen-browser.zen'
 run = 'move-node-to-workspace B'
 
+## Media
+
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = 'move-node-to-workspace M'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iTunes'
+run = 'move-node-to-workspace M'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Music'
+run = 'move-node-to-workspace M'
+
+
+## AI
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = 'move-node-to-workspace A'
+
 # Productivity
 
 [[on-window-detected]]
@@ -263,7 +282,7 @@ if.window-title-regex-substring = 'Picture-in-Picture'
 run = ['layout floating']
 
 [[on-window-detected]]
-if.app-id = 'ch.protonvpn.mac'
+if.app-id = 'com.surfshark.vpnclient.macos.direct'
 run = 'layout floating'
 
 [[on-window-detected]]
