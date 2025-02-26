@@ -74,6 +74,9 @@ export XMODIFIERS=""
 
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
 
+eval "$(oh-my-posh init zsh --config "$HOME/dotfiles/zsh/theme/zen.toml")"
+. ~/z.sh
+
 . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
