@@ -127,11 +127,19 @@
 [push]
     # push will only do the current branch, not all branches
     default = current
+    autoSetupRemote = true
+    followTags = true
 [branch]
     # set up 'git pull' to rebase instead of merge
     autosetuprebase = always
+    sort = -committerdate
 [pull]
     rebase = true
+    prune = true
+    pruneTags = true
+    all = true
+[merge]
+    conflictstyle = zdiff3
 [diff]
     renames = copies
     mnemonicprefix = true
@@ -175,3 +183,5 @@
 [rebase]
     instructionFormat = "[%an - %ar] %s"
     autoStash = true
+[help]
+    autocorrect = prompt
