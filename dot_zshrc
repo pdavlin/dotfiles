@@ -18,16 +18,25 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # nvm configuration
-if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  NVM_PATH="/opt/homebrew/opt/nvm/nvm.sh" # macOS (Apple Silicon)
+  NVM_COMPLETION="/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+elif [[ "$(uname -s)" == "Linux" ]]; then
+  NVM_PATH="/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" # Linux Homebrew
+  NVM_COMPLETION="/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"
+else
+  echo "Unsupported OS for NVM configuration"
+  return
+fi
+
+if [ -s "$NVM_PATH" ]; then
   export NVM_DIR="$HOME/.nvm"
-  
-  # Load nvm
-  . "/opt/homebrew/opt/nvm/nvm.sh"
-  
-  # Load nvm bash_completion if available
-  if [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]; then
-    . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-  fi
+
+  # Load NVM
+  . "$NVM_PATH"
+
+  # Load NVM bash_completion if available
+  [ -s "$NVM_COMPLETION" ] && . "$NVM_COMPLETION"
 
   # Set up automatic version switching based on .nvmrc
   autoload -U add-zsh-hook
@@ -51,8 +60,9 @@ if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
   add-zsh-hook chpwd load-nvmrc
   load-nvmrc
 else
-  echo "nvm is not installed; skipping nvm configuration."
+  echo "nvm is not installed in the expected locations; skipping nvm configuration."
 fi
+
 
 # User configuration
 
