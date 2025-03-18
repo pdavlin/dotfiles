@@ -90,3 +90,10 @@ eval "$(oh-my-posh init zsh --config "$HOME/dotfiles/zsh/theme/zen.toml")"
 . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
+
+# bun completions
+[ -s "/Users/pdavlin/.bun/_bun" ] && source "/Users/pdavlin/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
