@@ -249,6 +249,10 @@ run = 'move-node-to-workspace M'
 if.app-id = 'com.openai.chat'
 run = 'move-node-to-workspace A'
 
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
+run = 'move-node-to-workspace A'
+
 # Productivity
 
 [[on-window-detected]]
