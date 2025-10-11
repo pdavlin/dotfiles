@@ -54,8 +54,8 @@ setopt SHARE_HISTORY
 alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias c='clear'
-alias cat='bat'
 alias vim='nvim'
+command -v bat &>/dev/null && alias cat='bat'  # Only if bat is installed
 
 # Git aliases
 alias gs='git status'
