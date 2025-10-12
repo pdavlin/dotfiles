@@ -91,24 +91,8 @@ setopt SHARE_HISTORY
 # ============================================
 # Aliases
 # ============================================
-alias zshconfig="$EDITOR ~/.zshrc"
-alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
-alias c='clear'
-alias vim='nvim'
-command -v bat &>/dev/null && alias cat='bat'  # Only if bat is installed
-
-# Navigation aliases
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-
-# Git aliases
-alias gs='git status'
-alias ga='git add'
-alias gc='git commit'
-alias gp='git push'
-alias gl='git log --oneline --graph'
+# All aliases are defined in ~/.zsh_aliases
+[ -f "$HOME/.zsh_aliases" ] && source "$HOME/.zsh_aliases"
 
 # ============================================
 # Tool Initialization
@@ -226,6 +210,19 @@ if [ -f "$HOME/.atuin/bin/env" ]; then
     source "$HOME/.atuin/bin/env"
     command -v atuin &>/dev/null && eval "$(atuin init zsh)"
 fi
+
+# ============================================
+# Prompt (oh-my-posh)
+# ============================================
+if command -v oh-my-posh &>/dev/null; then
+    # Use custom theme if it exists, otherwise fall back to default
+    if [[ -f "$HOME/dotfiles/zsh/theme/zen.toml" ]]; then
+        eval "$(oh-my-posh init zsh --config "$HOME/dotfiles/zsh/theme/zen.toml")"
+    else
+        eval "$(oh-my-posh init zsh)"
+    fi
+fi
+
 
 # ============================================
 # Local Overrides

@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 # reload zsh config
 alias reload!='RELOAD=1 source ~/.zshrc'
 
@@ -44,3 +42,4 @@ if [[ -n "$(command -v nvim)" ]]; then
     # immediately open to fugitive's status screen
     alias vimg="nvim +Ge:"
 fi
+
