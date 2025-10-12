@@ -4,12 +4,52 @@
 # ============================================
 
 # ============================================
-# Zsh Options & Settings
+# Plugin Management (no OMZ - 200ms faster)
 # ============================================
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
-plugins=(git z zsh-autosuggestions zsh-syntax-highlighting)
-source "$ZSH/oh-my-zsh.sh"
+
+# Initialize completion system (needed for some plugins)
+autoload -Uz compinit && compinit
+
+# Async library (for git prompt if you want it later)
+[[ -f ~/.config/zsh/plugins/zsh-async/async.zsh ]] && \
+    source ~/.config/zsh/plugins/zsh-async/async.zsh
+
+# Syntax highlighting (colorizes commands as you type)
+[[ -f ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
+    source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Autosuggestions (shows command suggestions)
+[[ -f ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
+    source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# NPM scripts autocomplete (Tab completion for package.json scripts)
+[[ -f ~/.config/zsh/plugins/zsh-npm-scripts-autocomplete/zsh-npm-scripts-autocomplete.plugin.zsh ]] && \
+    source ~/.config/zsh/plugins/zsh-npm-scripts-autocomplete/zsh-npm-scripts-autocomplete.plugin.zsh
+
+# FZF tab completion (replaces default tab completion with fzf)
+[[ -f ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ]] && \
+    source ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+
+# Z for directory jumping
+[[ -f ~/z.sh ]] && source ~/z.sh
+
+# ============================================
+# FZF Tab Configuration
+# ============================================
+
+# FZF Tab Configuration
+if [[ -f ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ]]; then
+    # disable sort when completing `git checkout`
+    zstyle ':completion:*:git-checkout:*' sort false
+    # set descriptions format to enable group support
+    zstyle ':completion:*:descriptions' format '[%d]'
+    # preview directory's content with eza when completing cd
+    if command -v eza &>/dev/null; then
+        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+    else
+        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color=always $realpath'
+    fi
+fi
 
 # ============================================
 # Environment Variables
@@ -56,6 +96,12 @@ alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias c='clear'
 alias vim='nvim'
 command -v bat &>/dev/null && alias cat='bat'  # Only if bat is installed
+
+# Navigation aliases
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 # Git aliases
 alias gs='git status'
