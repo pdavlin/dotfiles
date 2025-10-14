@@ -28,11 +28,11 @@ local config = {
   colorscheme = function()
     if utils.is_dark_mode() then
       vim.o.background = "dark"
+      vim.cmd("colorscheme Atelier_PlateauDark")
     else
       vim.o.background = "light"
+      vim.cmd("colorscheme Atelier_PlateauLight")
     end
-
-    vim.cmd("colorscheme catppuccin")
   end,
 }
 
