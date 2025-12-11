@@ -197,15 +197,17 @@ run = 'move-node-to-workspace C'
 if.app-id = 'com.hnc.Discord'
 run = 'move-node-to-workspace C'
 
-## Development
+## Terminals
 
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
-run = 'move-node-to-workspace D'
+run = 'move-node-to-workspace T'
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace D'
+run = 'move-node-to-workspace T'
+
+## Development
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
