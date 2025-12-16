@@ -18,14 +18,24 @@ final_space = true
   newline = true
 
   [[blocks.segments]]
+    template = '{{ if .Env.SSH_CONNECTION }}󰣀 {{ .HostName }} {{ end }}'
+    foreground = 'green'
+    background = 'transparent'
+    type = 'text'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
     template = '{{ if .Env.CONTAINER_ID }}⬢ {{ .Env.CONTAINER_ID }} {{ end }}'
     foreground = 'yellow'
     background = 'transparent'
     type = 'text'
     style = 'plain'
 
-  [blocks.segments.properties]
-    cache_duration = 'none'
+    [blocks.segments.properties]
+      cache_duration = 'none'
 
   [[blocks.segments]]
     template = '{{ .Path }}'
