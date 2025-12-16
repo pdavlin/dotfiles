@@ -31,6 +31,15 @@ autoload -Uz compinit && compinit
     source ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 
 # ============================================
+# Linux Homebrew config
+# ============================================
+
+# force Homebrew to load as early as possible on Linux to beat oh-my-posh
+if [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
+# ============================================
 # FZF Tab Configuration
 # ============================================
 
