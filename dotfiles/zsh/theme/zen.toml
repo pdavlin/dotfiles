@@ -21,7 +21,7 @@ final_space = true
     template = '{{ if .Env.SSH_CONNECTION }}{{ .Icon }} {{ .HostName }} {{ end }}'
     foreground = 'green'
     background = 'transparent'
-    type = 'text'
+    type = 'os'
     style = 'plain'
 
     [blocks.segments.properties]
@@ -31,7 +31,7 @@ final_space = true
     template = '{{ if .Env.CONTAINER_ID }}{{ .Icon }} {{ .Env.CONTAINER_ID }} {{ end }}'
     foreground = 'yellow'
     background = 'transparent'
-    type = 'text'
+    type = 'os'
     style = 'plain'
 
     [blocks.segments.properties]
