@@ -28,10 +28,10 @@ final_space = true
       cache_duration = 'none'
 
   [[blocks.segments]]
-    template = '{{ if .Env.CONTAINER_ID }}{{ .Icon }} {{ .Env.CONTAINER_ID }} {{ end }}'
+    template = '{{ if .Env.CONTAINER_ID }}⬢ {{ .Env.CONTAINER_ID }} {{ end }}'
     foreground = 'yellow'
     background = 'transparent'
-    type = 'os'
+    type = 'text'
     style = 'plain'
 
     [blocks.segments.properties]
