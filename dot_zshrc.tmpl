@@ -171,6 +171,8 @@ fi
 {{ if eq .chezmoi.os "darwin" -}}
 # === macOS Specific ===
 
+export SSH_AUTH_SOCK=/Users/{{ .chezmoi.username }}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+
 # Homebrew
 [ -f "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -178,6 +180,12 @@ fi
 alias ls='ls -G'
 alias ll='ls -lhG'
 alias la='ls -lahG'
+
+# Bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# Deno
+[ -f "$HOME/.deno/env" ] && . "$HOME/.deno/env"
 
 {{- else if eq .chezmoi.os "linux" -}}
 # === Linux Specific ===
