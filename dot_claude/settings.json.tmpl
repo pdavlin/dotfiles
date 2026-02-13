@@ -77,7 +77,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/pdavlin/bin/claude-status-hook PreToolUse"
+            "command": "{{ .chezmoi.homeDir }}/bin/claude-status-hook PreToolUse"
           }
         ]
       }
@@ -87,7 +87,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/pdavlin/bin/claude-status-hook Stop"
+            "command": "{{ .chezmoi.homeDir }}/bin/claude-status-hook Stop"
           }
         ]
       }
@@ -97,7 +97,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/pdavlin/bin/claude-status-hook SubagentStop"
+            "command": "{{ .chezmoi.homeDir }}/bin/claude-status-hook SubagentStop"
           }
         ]
       }
@@ -107,7 +107,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/pdavlin/bin/claude-status-hook Notification"
+            "command": "{{ .chezmoi.homeDir }}/bin/claude-status-hook Notification"
           }
         ]
       }
